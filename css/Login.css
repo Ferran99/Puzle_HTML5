@@ -1,0 +1,26 @@
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.imgLogoLobby {
+    text-align: center;
+    display: block;
+}
+
+.contentLobby {
+    text-align: center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+    border: 1px solid #ddd;
+}
