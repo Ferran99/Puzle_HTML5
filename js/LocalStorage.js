@@ -15,19 +15,7 @@ var emmagatzematge = {
         while (taula.rows.length > 0) {
             taula.deleteRow(0);
         }
-    },
-   esborrarItem: function() {
-        localStorage.removeItem(document.getElementById('inputUsername').value);
-        emmagatzematge.esborrarTaula();
-        emmagatzematge.mostrar();
-    },
-   netejar: function() {
-        localStorage.clear();
-        emmagatzematge.esborrarTaula();
-        emmagatzematge.mostrar();
     }
 }
 document.getElementById('desar').addEventListener('click', emmagatzematge.desar, false);
-//document.getElementById('esborrar').addEventListener('click', emmagatzematge.esborrarItem, false);
-//document.getElementById('netejar').addEventListener('click', emmagatzematge.netejar, false);
 emmagatzematge.mostrar();
