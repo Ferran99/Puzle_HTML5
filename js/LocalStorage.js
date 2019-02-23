@@ -1,7 +1,7 @@
 var emmagatzematge = {
     taula: document.getElementById('taula'),
-    desar: function() {
-        localStorage.setItem(document.getElementById('inputUsername').value;
+    desar: function (key) {
+        localStorage.setItem(document.getElementById('nom').value);
         emmagatzematge.esborrarTaula();
         emmagatzematge.mostrar();
     },
@@ -12,12 +12,12 @@ var emmagatzematge = {
             fila.insertCell(1).innerHTML = localStorage.getItem(localStorage.key(i));
         };
     },
-    esborrarTaula: function() {
+   esborrarTaula: function() {
         while (taula.rows.length > 0) {
             taula.deleteRow(0);
         }
-    }
-  /*  esborrarItem: function() {
+    },
+   /*esborrarItem: function() {
         localStorage.removeItem(document.getElementById('inputUsername').value);
         emmagatzematge.esborrarTaula();
         emmagatzematge.mostrar();
@@ -27,8 +27,9 @@ var emmagatzematge = {
         emmagatzematge.esborrarTaula();
         emmagatzematge.mostrar();
     }*/
-};
-document.getElementById('startGame').addEventListener('click', emmagatzematge.desar, false);
+}
+document.getElementById('desar').addEventListener('click', emmagatzematge.desar, false);
 //document.getElementById('esborrar').addEventListener('click', emmagatzematge.esborrarItem, false);
 //document.getElementById('netejar').addEventListener('click', emmagatzematge.netejar, false);
 emmagatzematge.mostrar();
+
