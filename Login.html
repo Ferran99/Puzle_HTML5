@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 
 <head>
-    <title>DAW2</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="sergi.grau@fje.edu" />
+    <meta charset="utf-8"/>
+    <title>Puzzle Online</title>
+    <link href="css/Login.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script type="text/javascript" src="js/LocalStorage.js" defer></script>
 </head>
 
 <body>
-<h1> webstorage API </h1>
-<input type="text" id="nom" placeholder="nom" required>
-<button id="desar">Iniciar</button>
-<table class="m08" id="taula">
+<div>
+    <h1 class="title">Puzzle Online</h1>
+    <h3 class="subtitle">Welcome to the ultimate online Puzzle created using exclusively HTML5 APIs</h3>
+    <br/><br/>
+</div>
+<br/>
+<div class="contentLobby">
+    <h5>Choose your username and press the following button to start the game</h5>
+    <form method="post" action="" id="formUsername">
+        <div class="col-sm-3 col-centered">
+            <div class="form-group">
+                <label style="margin-top: 2%;" for="username">Username</label>
+                <input type="text" class="form-control" id="inputUsername" placeholder="Username" required>
+            </div>
+        </div>
+        <br /><br />
+        <button class="btn btn-primary" id="startGame">Start Game</button>
+        <table class="m08" id="taula">
 </table>
+    </form>
+</div>
+
+
+
+
 </body>
 
 </html>
-
