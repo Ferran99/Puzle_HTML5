@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script type="text/javascript" src="js/LocalStorage.js" defer></script>
+    <script type="text/javascript" src="js/indexedDB.js" defer></script>
 </head>
 
-<body>
+<body  onload="startDB();">
 <div>
     <h1 class="title">Puzzle Online</h1>
     <h3 class="subtitle">Welcome to the ultimate online Puzzle created using exclusively HTML5 APIs</h3>
@@ -27,11 +28,28 @@
             </div>
         </div>
         <br /><br />
-        <button class="btn btn-primary" id="startGame">Start Game</button>
+        <button class="btn btn-primary" id="startGame" onclick="addUsername();">Start Game</button>
         <table class="m08" id="taula">
 </table>
     </form>
 </div>
+<button onclick="loadAll();">Show names</button>
+<table>
+    <caption>Persons</caption>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th> </th>
+    </tr>
+    </thead>
+    <tbody id="elementsList">
+    <tr>
+        <td colspan="3">Not elements to show</td>
+    </tr>
+    </tbody>
+</table>
+<button type="button" onclick="loadAllByName();">Order by name</button>
 
 
 
