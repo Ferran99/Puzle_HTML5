@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="js/LocalStorage.js" defer></script>
+    <script type="text/javascript" src="js/indexedDB.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Resoults</title>
+</head>
+<body onload="startDB();">
+<button onclick="loadAll();">Show names</button>
+<table>
+    <caption>Persons</caption>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th> </th>
+    </tr>
+    </thead>
+    <tbody id="elementsList">
+    <tr>
+        <td colspan="2">Not elements to show</td>
+    </tr>
+    </tbody>
+</table>
+<button type="button" onclick="loadAllByName();">Order by name</button>
+</body>
+</html>

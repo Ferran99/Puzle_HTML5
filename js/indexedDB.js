@@ -23,11 +23,11 @@ function startDB() {
     };
 
     dataBase.onsuccess = function (e) {
-        alert('Base de carregada correctament');
+        console.log('Base de carregada correctament');
     };
 
     dataBase.onerror = function (e)  {
-        alert('Error al carregar la base de dades');
+        console.log('Error al carregar la base de dades');
     };
 }
 
@@ -47,58 +47,29 @@ function addUsername() {
         time:  $("#timeTaken").text()*1
     });
     request.onerror = function (e) {
-        alert(request.error.name + '\n\n' + request.error.message);
+        console.log(request.error.name + '\n\n' + request.error.message);
     };
 
     data.oncomplete = function (e) {
         document.querySelector('#dni').text = '';
         document.querySelector('#name').value = '';
         document.querySelector('#surname').value = '';
-        alert('Object successfully added');
+        console.log('Object successfully added');
 
     };
 
 }
-function addScore() {
-    var active = dataBase.result;
 
-    //Afegint objectes a la nosrtra taula
-    var data = active.transaction(["Scores"], "readwrite");
-
-    //Seleccionant taula on treballar
-    var object = data.objectStore("Scores");
-    var request = object.get(1);
-    request.onerror = function(event) {
-        // Handle errors!
-    };
-    request.onsuccess = function(event) {
-        // Get the old value that we want to update
-        var data = event.target.result;
-
-        // update the value(s) in the object that you want to change
-        data.score = 100;
-
-        // Put this updated object back into the database.
-        var requestUpdate = objectStore.put(data);
-        requestUpdate.onerror = function(event) {
-            // Do something with the error
-        };
-        requestUpdate.onsuccess = function(event) {
-            // Success - the data is updated!
-        };
-    };
-
-
-}
 
 function loadAll() {
     var active = dataBase.result;
     var data = active.transaction(["Scores"], "readonly");
     var object = data.objectStore("Scores");
+    var index = object.index("by_score");
 
     var elements = [];
 
-    object.openCursor().onsuccess = function (e) {
+    index.openCursor().onsuccess = function (e) {
 
         var result = e.target.result;
 
@@ -119,8 +90,8 @@ function loadAll() {
 
             outerHTML += '\n\
                         <tr>\n\
-                            <td>' + elements[key].id + '</td>\n\
                             <td>' + elements[key].name + '</td>\n\
+                            <td>' + elements[key].score + '</td>\n\
                             <td>\n\
                             </td>\n\
                         </tr>';
@@ -174,8 +145,6 @@ function loadAllByName() {
         document.querySelector("#elementsList").innerHTML = outerHTML;
     };
 }
-
-
 
 
 
