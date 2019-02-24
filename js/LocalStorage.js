@@ -3,7 +3,7 @@ var emmagatzematge = {
     desar: function (key, value) {
         localStorage.setItem(document.getElementById('inputUsername').value, value);
         emmagatzematge.esborrarTaula();
-        emmagatzematge.mostrar();
+        //emmagatzematge.mostrar();
     },
     mostrar: function() {
         for (var i = 0; i < localStorage.length; i++) {
@@ -21,4 +21,4 @@ var emmagatzematge = {
 }
 document.getElementById('startGame').addEventListener('click', emmagatzematge.desar, false);
 
-emmagatzematge.mostrar();
+//emmagatzematge.mostrar();

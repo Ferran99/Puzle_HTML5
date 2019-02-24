@@ -16,6 +16,7 @@ function startDB() {
 //Creant mes propietats a la BD
         object.createIndex('by_name', 'name', { unique : false });
         object.createIndex('by_score','score', { unique : false });
+        object.createIndex('by_time','time', { unique : false });
 
 
 
@@ -41,16 +42,52 @@ function addUsername() {
     var object = data.objectStore("Scores");
 
     var request = object.put({
-        name: document.querySelector("#inputUsername").value
+        name: localStorage.key(localStorage.length-1),
+        score: $("#timeTaken").text()*1*2 ,
+        time:  $("#timeTaken").text()*1
     });
     request.onerror = function (e) {
         alert(request.error.name + '\n\n' + request.error.message);
     };
 
     data.oncomplete = function (e) {
-        document.querySelector("#inputUsername").value = '';
-        alert('Objeto agregado correctamente');
+        document.querySelector('#dni').text = '';
+        document.querySelector('#name').value = '';
+        document.querySelector('#surname').value = '';
+        alert('Object successfully added');
+
     };
+
+}
+function addScore() {
+    var active = dataBase.result;
+
+    //Afegint objectes a la nosrtra taula
+    var data = active.transaction(["Scores"], "readwrite");
+
+    //Seleccionant taula on treballar
+    var object = data.objectStore("Scores");
+    var request = object.get(1);
+    request.onerror = function(event) {
+        // Handle errors!
+    };
+    request.onsuccess = function(event) {
+        // Get the old value that we want to update
+        var data = event.target.result;
+
+        // update the value(s) in the object that you want to change
+        data.score = 100;
+
+        // Put this updated object back into the database.
+        var requestUpdate = objectStore.put(data);
+        requestUpdate.onerror = function(event) {
+            // Do something with the error
+        };
+        requestUpdate.onsuccess = function(event) {
+            // Success - the data is updated!
+        };
+    };
+
 
 }
 
