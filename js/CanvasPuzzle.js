@@ -13,4 +13,6 @@ function splitIntoPieces (rows, columns){
             }        
         }
     }
+
+    img.src = "";
 }
