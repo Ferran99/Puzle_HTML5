@@ -1,4 +1,6 @@
 //Càlcul de la distancia entre 2 punts
+
+
 function aRadians(graus) {
     return graus * Math.PI / 180;
 }
@@ -53,4 +55,51 @@ window.setInterval(function(){
         }
 
     });
-}, 180000);
+}, 6000000);
+function geolocalitzacio() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let myLatitude = position.coords.latitude;
+        let myLongitude = position.coords.longitude;
+        let myLocation = new Array();
+
+        myLocation[0] = myLatitude;
+        myLocation[1] = myLongitude;
+        //alert(myLocation);
+
+        let latitudeNY = 40.7143528;
+        let longitudeNY = -74.0059731;
+        let distanceBetweenMeNY = distancia(myLatitude, myLongitude, latitudeNY, longitudeNY);
+
+        let latitudeParis = 48.856614;
+        let longitudeParis = 2.3522219;
+        let distanceBetweenMeParis = distancia(myLatitude, myLongitude, latitudeParis, longitudeParis);
+
+        let latitudeTokio = 35.6894875;
+        let longitudeTokio = 139.6917064;
+        let distanceBetweenMeTokio = distancia(myLatitude, myLongitude, latitudeTokio, longitudeTokio);
+
+        let closestCity = Math.min(distanceBetweenMeNY, distanceBetweenMeParis, distanceBetweenMeTokio);
+        if (closestCity == distanceBetweenMeNY) {
+            if (images.title == 'Paris'){
+                clearInterval()
+            } else {
+                setInterval(function () {
+                    console.log("New York");
+
+                    images.push({src: 'images/NewYork.jpg', title: 'NewYork'});
+
+                }, 100);
+            }
+
+        } else if (closestCity == distanceBetweenMeParis) {
+            console.log("Paris");
+            images.push({ src: "images/Paris.jpg", title: "Paris" });
+        } else if (closestCity == distanceBetweenMeTokio) {
+            console.log("Tokio");
+            images.push({ src: "images/Tokyo.jpg", title: "Tokyo" });
+        } else {
+            console.log("Error while calculating distance between you and the cities");
+        }
+
+    });
+}

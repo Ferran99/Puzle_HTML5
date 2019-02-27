@@ -1,10 +1,13 @@
 ﻿var timerFunction;
 
 var imagePuzzle = {
+
     stepCount: 0,
     startTime: new Date().getTime(),
     startGame: function (images, gridSize) {
+
         this.setImage(images, gridSize);
+
         $('#playPanel').show();
         $('#sortable').randomize();
         this.enableSwapping('#sortable li');
@@ -49,29 +52,33 @@ var imagePuzzle = {
     },
 
     setImage: function (images, gridSize) {
-        console.log(gridSize);
-        gridSize = gridSize || 4; // If gridSize is null or not passed, default it as 4.
-        console.log(gridSize);
-        var percentage = 100 / (gridSize - 1);
-        var image = images[Math.floor(Math.random() * images.length)];
-        $('#imgTitle').html(image.title);
-        $('#actualImage').attr('src', image.src);
-        $('#sortable').empty();
-        for (var i = 0; i < gridSize * gridSize; i++) {
-            var xpos = (percentage * (i % gridSize)) + '%';
-            var ypos = (percentage * Math.floor(i / gridSize)) + '%';
-            var li = $('<li class="item" data-value="' + (i) + '"></li>').css({
-                'background-image': 'url(' + image.src + ')',
-                'background-size': (gridSize * 100) + '%',
-                'background-position': xpos + ' ' + ypos,
-                'width': 400 / gridSize,
-                'height': 400 / gridSize
-            });
-            $('#sortable').append(li);
+
+
+            console.log(gridSize);
+            console.log(images);
+            gridSize = gridSize || 4; // If gridSize is null or not passed, default it as 4.
+            console.log(gridSize);
+            var percentage = 100 / (gridSize - 1);
+
+            //var image = images[Math.floor(Math.random() * images.length)];
+            $('#imgTitle').html(images[0].title);
+            $('#actualImage').attr('src', images[0].src);
+            $('#sortable').empty();
+            for (var i = 0; i < gridSize * gridSize; i++) {
+                var xpos = (percentage * (i % gridSize)) + '%';
+                var ypos = (percentage * Math.floor(i / gridSize)) + '%';
+                var li = $('<li class="item" data-value="' + (i) + '"></li>').css({
+                    'background-image': 'url(' + images[0].src + ')',
+                    'background-size': (gridSize * 100) + '%',
+                    'background-position': xpos + ' ' + ypos,
+                    'width': 400 / gridSize,
+                    'height': 400 / gridSize
+                });
+                $('#sortable').append(li);
+            }
+            $('#sortable').randomize();
         }
-        $('#sortable').randomize();
-    }
-};
+    };
 
 function isSorted(arr) {
     for (var i = 0; i < arr.length - 1; i++) {
@@ -91,3 +98,4 @@ $.fn.randomize = function (selector) {
     });
     return this;
 };
+

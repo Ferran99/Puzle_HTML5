@@ -24,11 +24,14 @@ function startDB() {
 
     dataBase.onsuccess = function (e) {
         console.log('Base de carregada correctament');
+        showResults();
+
     };
 
     dataBase.onerror = function (e)  {
         console.log('Error al carregar la base de dades');
     };
+
 }
 
 function addUsername() {
@@ -42,7 +45,7 @@ function addUsername() {
     var object = data.objectStore("Scores");
 
     var request = object.put({
-        name: localStorage.key(localStorage.length-1),
+        name: localStorage.key((localStorage.length*1)-1),
         score: $("#timeTaken").text()*1*2 ,
         time:  $("#timeTaken").text()*1
     });
@@ -86,15 +89,20 @@ function loadAll() {
 
         var outerHTML = '';
 
+        var i=1;
         for (var key in elements) {
+
 
             outerHTML += '\n\
                         <tr>\n\
+                            \
+                            <th scope="row">'+i+'</th>\n\
                             <td>' + elements[key].name + '</td>\n\
-                            <td>' + elements[key].score + '</td>\n\
-                            <td>\n\
-                            </td>\n\
-                        </tr>';
+                              <td>' + elements[key].score + '</td>\n\
+                        </tr>\n\
+                        \n\
+                         ';
+            i++
 
         }
 
@@ -128,16 +136,20 @@ function loadAllByName() {
     data.oncomplete = function () {
 
         var outerHTML = '';
-
+            var i=1;
         for (var key in elements) {
+
 
             outerHTML += '\n\
                         <tr>\n\
-                            <td>' + elements[key].id + '</td>\n\
+                            \
+                            <th scope="row">'+i+'</th>\n\
                             <td>' + elements[key].name + '</td>\n\
-                            <td>\n\
-                            </td>\n\
-                        </tr>';
+                              <td>' + elements[key].score + '</td>\n\
+                        </tr>\n\
+                        \n\
+                         ';
+            i++
 
         }
 

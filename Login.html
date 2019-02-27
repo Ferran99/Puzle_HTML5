@@ -9,9 +9,10 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script type="text/javascript" src="js/LocalStorage.js" defer></script>
     <script type="text/javascript" src="js/indexedDB.js" defer></script>
+    <script type="text/javascript" src="js/Geolocalitzacio.js" defer></script>
 </head>
 
-<body  onload="startDB();">
+<body  onload="startDB(); ">
 <div>
     <h1 class="title">Puzzle Online</h1>
     <h3 class="subtitle">Welcome to the ultimate online Puzzle created using exclusively HTML5 APIs</h3>
@@ -28,7 +29,7 @@
             </div>
         </div>
         <br /><br />
-        <button class="btn btn-primary" id="startGame">Start Game</button>
+        <button class="btn btn-primary" onclick="geolocalitzacio();" id="startGame">Start Game</button>
         <table class="m08" id="taula">
 </table>
     </form>
