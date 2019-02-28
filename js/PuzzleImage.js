@@ -60,15 +60,15 @@ var puzzleImage = {
             console.log(gridSize);
             var percentage = 100 / (gridSize - 1);
 
-            //var image = images[Math.floor(Math.random() * images.length)];
-            $('#imgTitle').html(images[0].title);
-            $('#actualImage').attr('src', images[0].src);
+            var image = imatge[Math.floor(Math.random() * images.length)];
+            $('#imgTitle').html(image.title);
+            $('#actualImage').attr('src', image.src);
             $('#sortable').empty();
             for (var i = 0; i < gridSize * gridSize; i++) {
                 var xpos = (percentage * (i % gridSize)) + '%';
                 var ypos = (percentage * Math.floor(i / gridSize)) + '%';
                 var li = $('<li class="item" data-value="' + (i) + '"></li>').css({
-                    'background-image': 'url(' + images[0].src + ')',
+                    'background-image': 'url(' + image.src + ')',
                     'background-size': (gridSize * 100) + '%',
                     'background-position': xpos + ' ' + ypos,
                     'width': 400 / gridSize,

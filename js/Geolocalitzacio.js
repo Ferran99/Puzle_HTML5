@@ -79,8 +79,8 @@ function geolocalitzacio() {
         let distanceBetweenMeTokio = distancia(myLatitude, myLongitude, latitudeTokio, longitudeTokio);
 
         let closestCity = Math.min(distanceBetweenMeNY, distanceBetweenMeParis, distanceBetweenMeTokio);
-        if (closestCity == distanceBetweenMeNY) {
-            if (images.title == 'Paris'){
+        if (closestCity === distanceBetweenMeNY) {
+            if (images.length === 1){
                 clearInterval()
             } else {
                 setInterval(function () {
@@ -91,9 +91,17 @@ function geolocalitzacio() {
                 }, 100);
             }
 
-        } else if (closestCity == distanceBetweenMeParis) {
-            console.log("Paris");
-            images.push({ src: "images/Paris.jpg", title: "Paris" });
+        } else if (closestCity === distanceBetweenMeParis) {
+            if (images.length === 0){
+                var ide = setInterval(function () {
+                    console.log("Paris");
+                     imatge = [{src: "images/Paris.jpg", title: "Paris"}];
+                }, 100);
+
+            } else {
+                clearInterval(ide);
+
+            }
         } else if (closestCity == distanceBetweenMeTokio) {
             console.log("Tokio");
             images.push({ src: "images/Tokyo.jpg", title: "Tokyo" });

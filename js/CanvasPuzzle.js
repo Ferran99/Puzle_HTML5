@@ -14,5 +14,5 @@ function splitIntoPieces (rows, columns){
         }
     }
 
-    img.src = "";
+    img.src = imatge.src;
 }
