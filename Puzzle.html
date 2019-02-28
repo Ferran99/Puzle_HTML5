@@ -10,10 +10,11 @@
     <script type="text/javascript" src="js/indexedDB.js" defer></script>
     <script type="text/javascript" src="js/Geolocalitzacio.js" defer></script>
     <script type="text/javascript" src="js/Results.js" defer></script>
+    <script type="text/javascript" src="js/puzle.js" defer></script>
 
     <script>
 
-        window.setInterval(function(){
+      /*  window.setInterval(function(){
 
                 images = [];
 
@@ -43,12 +44,12 @@
                     }
                 }else clearInterval();
         }, 500);
-
+*/
 
     </script>
 </head>
-<body onload="startDB(); geolocalitzacio(); start();">
-    <div id="collage">
+<body onload="startDB(); geolocalitzacio(); init(); start();" cz-shortcut-listen="true">
+   <!-- <div id="collage">
         <h2>Image Puzzle</h2>
         <hr />
         <div id="playPanel" style="padding:5px;display:none;">
@@ -99,7 +100,8 @@
 
 
     </div>
-
+-->
+   <canvas id="canvas" width="800" height="532" style="border: 1px solid black;"></canvas>
 
 </body>
 </html>
