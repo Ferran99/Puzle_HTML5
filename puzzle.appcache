@@ -1,0 +1,29 @@
+CACHE MANIFEST
+#fitxers offline
+
+CACHE:
+Login.html
+Puzzle.html
+Results.html
+js/CanvasPuzzle.js
+js/Geolocalitzacio.js
+js/indexedDB.js
+js/jquery-2.1.1.min.js
+js/jquery-ui.js
+js/LocalStorage.js
+js/Puzzle.js
+js/PuzzleImage.js
+js/Results.js
+img/NewYork.png
+img/Paris.png
+img/Tokyo.png
+css/image-puzzle.css
+css/Login.css
+css/style.css
+
+
+NETWORK:
+#fitxers online
+*
+
+FALLBACK:
