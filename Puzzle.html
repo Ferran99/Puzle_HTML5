@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Image Puzzle</title>
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/image-puzzle.css" rel="stylesheet"/>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/PuzzleImage.js"></script>
@@ -11,97 +11,11 @@
     <script type="text/javascript" src="js/Geolocalitzacio.js" defer></script>
     <script type="text/javascript" src="js/Results.js" defer></script>
     <script type="text/javascript" src="js/puzle.js" defer></script>
-
-    <script>
-
-      /*  window.setInterval(function(){
-
-                images = [];
-
-                if (images[0].title == 'Paris') {
-
-                    $(function () {
-
-                        var gridSize = $('#levelPanel :radio:checked').val();
-                        puzzleImage.startGame(images, gridSize);
-                        $('#newPhoto').click(function () {
-                            var gridSize = $('#levelPanel :radio:checked').val();  // Take the updated gridSize from UI.
-                            puzzleImage.startGame(images, gridSize);
-                        });
-
-                        $('#levelPanel :radio').change(function (e) {
-                            var gridSize = $(this).val();
-                            puzzleImage.startGame(images, gridSize);
-                        });
-                    });
-
-                    function rules() {
-                        alert('Re arrange the image parts in a way that it correctly forms the picture. \nThe no. of steps taken will be counted.');
-                    }
-
-                    function about() {
-                        alert('Developed by Anurag Gandhi. \nHe can be contacted at: soft.gandhi@gmail.com');
-                    }
-                }else clearInterval();
-        }, 500);
-*/
-
-    </script>
+    <script type="text/javascript" src="js/Time.js" defer></script>
 </head>
-<body onload="startDB(); geolocalitzacio(); init(); start();" cz-shortcut-listen="true">
-   <!-- <div id="collage">
-        <h2>Image Puzzle</h2>
-        <hr />
-        <div id="playPanel" style="padding:5px;display:none;">
-            <h3 id="imgTitle"></h3> <hr />
-            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
-                <ul id="sortable" class="sortable"></ul>
-                <div id="actualImageBox">
-                    <div id="stepBox">
-                        <div>Steps:</div><div class="stepCount">0</div>
-                    </div>
-                    <div id="timeBox">
-                        Time Taken: <span id="timerPanel"></span> secs
-                    </div>
-                    <img id="actualImage" />
-                    <div>Re-arrange to create a picture like this.</div>
-                    <p id="levelPanel">
-                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Easy</label>
-                        <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
-                        <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
-                    </p>
-                    <div>
-                        <button id="btnRule" type="button" class="btn" onclick="rules();">Rules</button>
-                        <button id="btnReplay" type="button" class="btn" onclick="about();">About</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="gameOver" style="display:none;">
-            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
-                <h2 style="text-align:center">Game Over!!</h2>
-                Congratulations!! <br /> You have completed this picture.
-                <br />
-                Steps: <span class="stepCount">0</span> steps.
-                <br />
-                Time Taken: <span id="timeTaken" class="timeCount">0</span> seconds<br />
-                <div>
-                    <form action="Results.html">
-                        <input type="submit"  onclick="addUsername();">Finish</input>
-
-                    </form>
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
--->
-   <canvas id="canvas" width="800" height="532" style="border: 1px solid black;"></canvas>
+<body onload="startDB(); geolocalitzacio();  start();" cz-shortcut-listen="true">
+<canvas id="canvas" width="800" height="532" style="border: 1px solid black;"></canvas>
+<p id="time">Time: <span id="segundos">0</span>s</p>
 
 </body>
 </html>

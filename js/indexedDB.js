@@ -12,12 +12,11 @@ function startDB() {
         //Obrint conexió a indexedDB
         active = dataBase.result;
         //Creant una taula per emagatzemar les dades. Amb clau primaria ID
-        object= active.createObjectStore("Scores", { keyPath : 'id', autoIncrement : true });
+        object = active.createObjectStore("Scores", {keyPath: 'id', autoIncrement: true});
 //Creant mes propietats a la BD
-        object.createIndex('by_name', 'name', { unique : false });
-        object.createIndex('by_score','score', { unique : false });
-        object.createIndex('by_time','time', { unique : false });
-
+        object.createIndex('by_name', 'name', {unique: false});
+        object.createIndex('by_score', 'score', {unique: false});
+        object.createIndex('by_time', 'time', {unique: false});
 
 
     };
@@ -28,7 +27,7 @@ function startDB() {
 
     };
 
-    dataBase.onerror = function (e)  {
+    dataBase.onerror = function (e) {
         console.log('Error al carregar la base de dades');
     };
 
@@ -45,18 +44,16 @@ function addUsername() {
     var object = data.objectStore("Scores");
 
     var request = object.put({
-        name: localStorage.key((localStorage.length*1)-1),
-        score: $("#timeTaken").text()*1*2 ,
-        time:  $("#timeTaken").text()*1
+        name: localStorage.key((localStorage.length * 1) - 1),
+        score: $("#segundos").text() * 1 * 2,
+        time: $("#segundos").text() * 1
     });
     request.onerror = function (e) {
         console.log(request.error.name + '\n\n' + request.error.message);
     };
 
     data.oncomplete = function (e) {
-        document.querySelector('#dni').text = '';
-        document.querySelector('#name').value = '';
-        document.querySelector('#surname').value = '';
+
         console.log('Object successfully added');
 
     };
@@ -89,14 +86,14 @@ function loadAll() {
 
         var outerHTML = '';
 
-        var i=1;
+        var i = 1;
         for (var key in elements) {
 
 
             outerHTML += '\n\
                         <tr>\n\
                             \
-                            <th scope="row">'+i+'</th>\n\
+                            <th scope="row">' + i + '</th>\n\
                             <td>' + elements[key].name + '</td>\n\
                               <td>' + elements[key].score + '</td>\n\
                         </tr>\n\
@@ -136,14 +133,14 @@ function loadAllByName() {
     data.oncomplete = function () {
 
         var outerHTML = '';
-            var i=1;
+        var i = 1;
         for (var key in elements) {
 
 
             outerHTML += '\n\
                         <tr>\n\
                             \
-                            <th scope="row">'+i+'</th>\n\
+                            <th scope="row">' + i + '</th>\n\
                             <td>' + elements[key].name + '</td>\n\
                               <td>' + elements[key].score + '</td>\n\
                         </tr>\n\
@@ -157,25 +154,6 @@ function loadAllByName() {
         document.querySelector("#elementsList").innerHTML = outerHTML;
     };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
