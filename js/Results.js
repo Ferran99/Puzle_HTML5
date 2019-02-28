@@ -1,13 +1,7 @@
  function showResults() {
     demo();
-
-
-
-
-
-
-
 }
+
  async function demo() {
      await sleep(1000);
      document.getElementById('score').click();

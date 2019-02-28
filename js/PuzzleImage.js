@@ -1,6 +1,6 @@
 ﻿var timerFunction;
 
-var imagePuzzle = {
+var puzzleImage = {
 
     stepCount: 0,
     startTime: new Date().getTime(),
@@ -17,9 +17,9 @@ var imagePuzzle = {
     },
     tick: function () {
         var now = new Date().getTime();
-        var elapsedTime = parseInt((now - imagePuzzle.startTime) / 1000, 10);
+        var elapsedTime = parseInt((now - puzzleImage.startTime) / 1000, 10);
         $('#timerPanel').text(elapsedTime);
-        timerFunction = setTimeout(imagePuzzle.tick, 1000);
+        timerFunction = setTimeout(puzzleImage.tick, 1000);
     },
     enableSwapping: function (elem) {
         $(elem).draggable({
@@ -40,13 +40,13 @@ var imagePuzzle = {
 
                 } else {
                     var now = new Date().getTime();
-                    imagePuzzle.stepCount++;
-                    $('.stepCount').text(imagePuzzle.stepCount);
-                    $('.timeCount').text(parseInt((now - imagePuzzle.startTime) / 1000, 10));
+                    puzzleImage.stepCount++;
+                    $('.stepCount').text(puzzleImage.stepCount);
+                    $('.timeCount').text(parseInt((now - puzzleImage.startTime) / 1000, 10));
                 }
 
-                imagePuzzle.enableSwapping(this);
-                imagePuzzle.enableSwapping($dragElem);
+                puzzleImage.enableSwapping(this);
+                puzzleImage.enableSwapping($dragElem);
             }
         });
     },
