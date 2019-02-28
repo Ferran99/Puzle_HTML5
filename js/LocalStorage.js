@@ -5,14 +5,15 @@ var emmagatzematge = {
         emmagatzematge.esborrarTaula();
         //emmagatzematge.mostrar();
     },
-    mostrar: function() {
+    mostrar: function () {
         for (var i = 0; i < localStorage.length; i++) {
             var fila = taula.insertRow(0);
             fila.insertCell(0).innerHTML = localStorage.key(i);
             //fila.insertCell(0).innerHTML = localStorage.getItem(localStorage.key(i));
-        };
+        }
+        ;
     },
-   esborrarTaula: function() {
+    esborrarTaula: function () {
         while (taula.rows.length > 0) {
             taula.deleteRow(0);
         }

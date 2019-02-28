@@ -4,6 +4,7 @@
 function aRadians(graus) {
     return graus * Math.PI / 180;
 }
+
 function distancia(latitud1, longitud1, latitud2, longitud2) {
 // R radi en km de la terra
     var R = 6371;
@@ -21,9 +22,9 @@ function distancia(latitud1, longitud1, latitud2, longitud2) {
 }
 
 //Obtenir la ciutat més propera a l'usuari
-window.setInterval(function(){
-    navigator.geolocation.getCurrentPosition(function(position) {
-        let myLatitude =  position.coords.latitude;
+window.setInterval(function () {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let myLatitude = position.coords.latitude;
         let myLongitude = position.coords.longitude;
         let myLocation = new Array();
 
@@ -41,14 +42,14 @@ window.setInterval(function(){
 
         let latitudeTokio = 35.6894875;
         let longitudeTokio = 139.6917064;
-        let distanceBetweenMeTokio =  distancia(myLatitude, myLongitude, latitudeTokio, longitudeTokio);
+        let distanceBetweenMeTokio = distancia(myLatitude, myLongitude, latitudeTokio, longitudeTokio);
 
         let closestCity = Math.min(distanceBetweenMeNY, distanceBetweenMeParis, distanceBetweenMeTokio);
-        if (closestCity == distanceBetweenMeNY){
+        if (closestCity == distanceBetweenMeNY) {
             console.log("New York");
-        } else if (closestCity == distanceBetweenMeParis){
+        } else if (closestCity == distanceBetweenMeParis) {
             console.log("Paris");
-        } else if (closestCity == distanceBetweenMeTokio){
+        } else if (closestCity == distanceBetweenMeTokio) {
             console.log("Tokio");
         } else {
             console.log("Error while calculating distance between you and the cities");
@@ -56,6 +57,7 @@ window.setInterval(function(){
 
     });
 }, 6000000);
+
 function geolocalitzacio() {
     navigator.geolocation.getCurrentPosition(function (position) {
         let myLatitude = position.coords.latitude;
@@ -80,31 +82,21 @@ function geolocalitzacio() {
 
         let closestCity = Math.min(distanceBetweenMeNY, distanceBetweenMeParis, distanceBetweenMeTokio);
         if (closestCity === distanceBetweenMeNY) {
-            if (images.length === 1){
-                clearInterval()
-            } else {
-                setInterval(function () {
-                    console.log("New York");
-
-                    images.push({src: 'images/NewYork.jpg', title: 'NewYork'});
-
-                }, 100);
-            }
+            console.log("NewYork");
+            imatge = {src: 'images/NewYork.jpg'};
+            init();
 
         } else if (closestCity === distanceBetweenMeParis) {
-            if (images.length === 0){
-                var ide = setInterval(function () {
-                    console.log("Paris");
-                     imatge = [{src: "images/Paris.jpg", title: "Paris"}];
-                }, 100);
 
-            } else {
-                clearInterval(ide);
+            console.log("Paris");
+            imatge = {src: "images/Paris.jpg"};
+            init();
 
-            }
+
         } else if (closestCity == distanceBetweenMeTokio) {
             console.log("Tokio");
-            images.push({ src: "images/Tokyo.jpg", title: "Tokyo" });
+            imatge = {src: "images/Tokyo.jpg", title: "Tokyo"};
+            init();
         } else {
             console.log("Error while calculating distance between you and the cities");
         }
