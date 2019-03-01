@@ -1,4 +1,5 @@
-const PUZZLE_DIFFICULTY = 3;
+var retallar =   prompt("Quantes caselles vols: 3x3 o 4x4?" );
+const PUZZLE_DIFFICULTY = retallar;
 const PUZZLE_HOVER_TINT = '#009900';
 
 var _stage;
@@ -12,10 +13,11 @@ var _pieceWidth;
 var _pieceHeight;
 var _currentPiece;
 var _currentDropPiece;
-
+var retallar;
 var _mouse;
 
 function init() {
+
     _img = new Image();
     _img.addEventListener('load', onImage, false);
     _img.src = imatge.src;
